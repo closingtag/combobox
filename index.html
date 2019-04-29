@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: sans-serif;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            [role="listbox"] {
+                list-style: none;
+                position: absolute;
+                margin: 0;
+                padding: 0;
+            }
+    
+            [role="listbox"] [role="option"]:hover,
+            [role="listbox"] [role="option"][aria-selected="true"] {
+                background-color: lightgrey;
+            }
+        </style>
+</head>
+<body>
+    <form action="">
+        <label for="film">Animated Movie</label>
+        <input id="film" list="films" type="text"/>
+        <datalist id="films">
+            <option value="Superman: Doomsday">Superman: Doomsday</option>
+            <option value="Justice League: The New Frontier" />
+            <option value="Batman: Gotham Knight" />
+            <option value="Wonder Woman" />
+            <option value="Green Lantern: First Flight" />
+            <option value="Superman/Batman: Public Enemies" />
+            <option value="Justice League: Crisis on Two Earths" />
+            <option value="Batman: Under the Red Hood" />
+            <option value="Superman/Batman: Apocalypse" />
+            <option value="All-Star Superman" />
+            <option value="Green Lantern: Emerald Knights" />
+            <option value="Batman: Year One" />
+            <option value="Justice League: Doom" />
+            <option value="Superman vs. The Elite" />
+            <option value="Batman: The Dark Knight Returns" />
+            <option value="Superman: Unbound" />
+            <option value="Justice League: The Flashpoint Paradox" />
+            <option value="Justice League: War" />
+            <option value="Son of Batman" />
+            <option value="Batman: Assault on Arkham" />
+            <option value="Justice League: Throne of Atlantis" />
+            <option value="Batman vs. Robin" />
+            <option value="Justice League: Gods and Monsters" />
+            <option value="Batman: Bad Blood" />
+            <option value="Justice League vs. Teen Titans" />
+            <option value="Batman: The Killing Joke" />
+            <option value="Justice League Dark" />
+            <option value="Teen Titans: The Judas Contract" />
+            <option value="Batman and Harley Quinn" />
+            <option value="Batman: Gotham by Gaslight" />
+            <option value="Suicide Squad: Hell to Pay" />
+            <option value="The Death of Superman" />
+        </datalist>
+    </form>    
+
+    <script src="combobox.js"></script>
+</body>
+</html>
