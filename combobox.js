@@ -1,17 +1,6 @@
 const combobox = (() => {
 	let list, textbox;
 
-	const keyCodes = {
-		'BACKSPACE': 8,
-		'DEL': 46,
-		'RETURN': 13,
-		'ESC': 27,
-		'LEFT': 37,
-		'UP': 38,
-		'RIGHT': 39,
-		'DOWN': 40
-	};
-
 	const init = input => {
 		const target = input.list || document.getElementById(input.getAttribute('list'));
 
@@ -81,32 +70,34 @@ const combobox = (() => {
 			window.setTimeout(() => list.toggle(false), 10);
 		},
 		keyup(event) {
-			if( [keyCodes.DEL, keyCodes.BACKSPACE].indexOf(event.keyCode) > -1 || isPrintable(event.key) ) {
+			if( ['Delete', 'Backspace'].indexOf(event.key) > -1 || isPrintable(event.key) ) {
 				list.filter(textbox.value);
 				list.toggle(true);
 			}
 		},
 		keydown(event) {
+			const key = event.key.replace(/(Arrow|ape)/, '');
+
 			const actions = {
-				[keyCodes.RETURN]() {
+				Enter() {
 					event.preventDefault();
 					list.select();
 					list.toggle(false);
 					list.filter(textbox.value);
 				},
-				[keyCodes.ESC](){
+				Esc(){
 					textbox.value = '';
 					list.clear();
 					list.toggle(false);
 				},
-				[keyCodes.DOWN](){
+				Down(){
 					event.preventDefault();
 					if( list.hidden() ) {
 						list.toggle();
 					}
 					list.select(true);
 				},
-				[keyCodes.UP]() {
+				Up() {
 					event.preventDefault();
 					if( list.hidden() ) {
 						list.toggle();
@@ -115,7 +106,7 @@ const combobox = (() => {
 				}
 			};
 
-			actions[event.keyCode] && actions[event.keyCode]();
+			actions[key] && actions[key]();
 		},
 	};
 
