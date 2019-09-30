@@ -17,15 +17,18 @@ const combobox = (() => {
 
 		textbox.parentNode.insertBefore(wrapper, textbox);
 		wrapper.appendChild(textbox);
-
 		textbox.removeAttribute('list');
-		textbox.setAttribute('aria-autocompletelist', 'list');
 
-		textbox.setAttribute('role', 'combobox');
-		textbox.setAttribute('autocomplete', 'off');
-		textbox.setAttribute('aria-expanded', 'false');
-		textbox.setAttribute('aria-owns', target.id);
-		textbox.setAttribute('aria-haspopup', true);
+		const attributes = {
+			'aria-autocompletelist': 'list',
+			'role': 'combobox',
+			'autocomplete': 'off',
+			'aria-expanded': 'false',
+			'aria-owns': target.id,
+			'aria-haspopup': true,
+		};
+
+		Object.keys(attributes).forEach(key => textbox.setAttribute(key, attributes[key]));
 
 		list = listbox.init({
 			datalist: target,
